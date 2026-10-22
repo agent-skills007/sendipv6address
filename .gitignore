@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*.tmp
+*.bak
+ipv6_state.json
+ipv6_monitor.lock
+local_ipv6.json

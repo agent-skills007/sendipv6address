@@ -1,15 +1,15 @@
 {
-    "subject": "\u4f60\u7684IP\u5730\u5740\u53d1\u751f\u4e86\u53d8\u5316",
-    "contain": [
-        {
-            "eth0": "2408:8256:7be:9170:d8ef:4247:3167:6"
-        },
-        {
-            "eth0": "2408:8256:7be:9170:be5e:9079:42bd:65ef"
-        }
-    ],
-    "address": [
-        "abc@126.com",
-        "abc@qq.com"
-    ]
+  "device_name": "树莓派",
+  "interfaces": ["eth0"],
+  "ifconfig_path": "/usr/sbin/ifconfig",
+  "state_file": "local_ipv6_old.json",
+  "smtp_host": "smtp.163.com",
+  "smtp_port": 465,
+  "smtp_user": "replace-with-sender@example.com",
+  "smtp_password": "replace-with-smtp-app-password",
+  "sender": "replace-with-sender@example.com",
+  "subject": "你的IP地址发生了变化",
+  "recipients": [
+    "replace-with-recipient@example.com"
+  ]
 }
