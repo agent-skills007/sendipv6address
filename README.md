@@ -36,7 +36,7 @@
   "smtp_user": "sender@example.com",
   "smtp_password": "smtp-app-password",
   "sender": "sender@example.com",
-  "subject": "IPv6 地址发生变化",
+  "subject": "IP地址变化",
   "recipients": ["recipient@example.com"]
 }
 ```

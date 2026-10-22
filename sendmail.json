@@ -8,7 +8,7 @@
   "smtp_user": "replace-with-sender@example.com",
   "smtp_password": "replace-with-smtp-app-password",
   "sender": "replace-with-sender@example.com",
-  "subject": "你的IP地址发生了变化",
+  "subject": "IP地址变化",
   "recipients": [
     "replace-with-recipient@example.com"
   ]

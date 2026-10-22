@@ -116,10 +116,18 @@ def format_addresses(addresses: list[dict[str, str]], empty: str) -> list[str]:
     return [f"  {interface}: {address}" for item in addresses for interface, address in item.items()]
 
 
+def device_name_from_config(config: dict[str, Any]) -> str:
+    return str(config.get("device_name", socket.gethostname()))
+
+
+def subject_from_config(config: dict[str, Any]) -> str:
+    return f"{device_name_from_config(config)}{config.get('subject', 'IP地址变化')}"
+
+
 def format_body(
     config: dict[str, Any], ipv4: list[dict[str, str]], ipv6: list[dict[str, str]]
 ) -> str:
-    device_name = str(config.get("device_name", socket.gethostname()))
+    device_name = device_name_from_config(config)
     timestamp = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
     lines = [
         f"设备标记: {device_name}",
@@ -153,7 +161,7 @@ def send_mail(
         raise ValueError("sender, smtp_user, and smtp_password are required")
 
     message = MIMEText(format_body(config, ipv4, ipv6), _charset="utf-8")
-    message["Subject"] = str(config["subject"])
+    message["Subject"] = subject_from_config(config)
     message["From"] = sender
     message["To"] = ", ".join(recipients)
 

@@ -43,6 +43,11 @@ class MonitorTests(unittest.TestCase):
         self.assertIn("设备标记: 测试设备", body)
         self.assertIn("wlan0: 192.168.2.230", body)
         self.assertIn("wlan0: 2408:8256::1", body)
+        self.assertEqual(ipv6_monitor.subject_from_config({"device_name": "测试设备"}), "测试设备IP地址变化")
+        self.assertEqual(
+            ipv6_monitor.subject_from_config({"device_name": "测试设备", "subject": "地址更新"}),
+            "测试设备地址更新",
+        )
 
     def test_empty_address_sections_are_explicit(self):
         body = ipv6_monitor.format_body({}, [], [])
